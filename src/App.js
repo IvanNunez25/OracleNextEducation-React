@@ -3,12 +3,18 @@ import Header from './components/Header/Header.jsx';
 import Formulario from './components/Formulario/Formulario.jsx';
 import MiOrg from './components/MiOrg/index.jsx';
 import Equipo from './components/Equipo/Equipo.jsx';
+import Footer from './components/Footer/Footer.jsx';
 import './App.css';
 
 function App() {
 
   const [mostrarFormulario, setMostrarFormulario] = useState(true);
-  const [colaboradores, setColaboradores] = useState([]);
+  const [colaboradores, setColaboradores] = useState([{
+    nombre: 'Ivanovicx Nuñez',
+    puesto: 'Instructor',
+    foto: 'https://github.com/IvanNunez25.png',
+    equipo: 'Programación'
+  }]);
 
   const cambiarMostrar = () => {
     setMostrarFormulario(!mostrarFormulario);
@@ -72,6 +78,8 @@ function App() {
         datos={equipo} 
         key={equipo.titulo} 
         colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)} />)}
+
+      <Footer />
     </div>
   );
 }
